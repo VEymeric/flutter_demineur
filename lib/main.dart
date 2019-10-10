@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 
 enum TileState { covered, blown, open, flagged, revealed }
 
+/**
+ * TODO : Meilleur temps
+ */
+
 void main() => runApp(MineSweeper());
 
 class MineSweeper extends StatelessWidget {
@@ -151,7 +155,12 @@ class BoardState extends State<Board> {
         child: Center(
             child: Column(children: <Widget>[
           Container(
-            height: 40.0,
+              child: Text(
+            "Démineur",
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          )),
+          Container(
+            height: 80.0,
             alignment: Alignment.center,
             margin: EdgeInsets.only(left: 20),
             child: RichText(
@@ -160,8 +169,8 @@ class BoardState extends State<Board> {
                   text: wonGame
                       ? "You've Won! $timeElapsed seconds"
                       : alive
-                          ? "Mines trouvées: $minesFound - Total Mines: $numOfMines - $timeElapsed secondes"
-                          : "Perdu !"),
+                          ? "Mines trouvées: $minesFound \nTotal Mines: $numOfMines \n$timeElapsed secondes"
+                          : "\nPerdu !"),
             ),
           ),
           buildBoard(),
