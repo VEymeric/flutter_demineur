@@ -192,6 +192,7 @@ class BoardState extends State<Board> {
   void open(int x, int y) {
     if (!inBoard(x, y)) return;
     if (uiState[y][x] == TileState.open) return;
+    if (uiState[y][x] == TileState.flagged) --minesFound;
     uiState[y][x] = TileState.open;
 
     if (mineCount(x, y) > 0) return;
